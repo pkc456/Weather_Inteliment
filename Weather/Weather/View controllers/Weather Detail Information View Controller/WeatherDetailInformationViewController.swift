@@ -27,7 +27,18 @@ class WeatherDetailInformationViewController: UIViewController {
     }
 
     private func setTextUsingAnimation(){
+//        UIView.transition(with: self.labelTest,
+//                                  duration: 1.2,
+//                                  options: [.curveEaseInOut, .transitionCrossDissolve],
+//                                  animations: { () -> Void in
+//                                    self.labelTest.text = "80 % "
+//        }, completion: nil)
         
+//        let animation: CATransition = CATransition()
+//        animation.duration = 1.0
+//        animation.type = kCATransitionFade
+//        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+//        labelTest.layer.addAnimation(animation, forKey: "changeTextTransition")
     }
     
     private func setTemperatureImage(weatherType : String)
@@ -38,6 +49,12 @@ class WeatherDetailInformationViewController: UIViewController {
             imageName = "CloudySky"
         }else if(weatherType.contains("Clear")){
             imageName = "ClearSky"
+        }else if(weatherType.contains("Rain")){
+            imageName = "RainSky"
+        }else if(weatherType.contains("Squall")){
+            imageName = "SquallSky"
+        }else if(weatherType.contains("Drizzle")){
+            imageName = "DrizzleSky"
         }else{
             imageName = "ClearSky"
         }

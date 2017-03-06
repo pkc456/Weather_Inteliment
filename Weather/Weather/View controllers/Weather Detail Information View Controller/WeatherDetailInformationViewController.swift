@@ -12,7 +12,7 @@ class WeatherDetailInformationViewController: UIViewController {
 
     @IBOutlet weak var imageViewTemperature: UIImageView!
     var selectedWeatherInformationObject : WeatherInformation!
-    @IBOutlet weak var labelTest: UILabel!
+    @IBOutlet weak var labelTemperature: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,25 +22,24 @@ class WeatherDetailInformationViewController: UIViewController {
     func setUpUI(){
         self.navigationItem.title = selectedWeatherInformationObject.name
         
-        setTextUsingAnimation()
+        let temperatureString = "\(selectedWeatherInformationObject.main.temp_max) - \(selectedWeatherInformationObject.main.temp_min)"
+        setTextOn(label: labelTemperature, text: temperatureString, imageName: "Temperature")
+        
+        //Set image according to temperature
         self.setTemperatureImage(weatherType: selectedWeatherInformationObject.weather[0].main)
     }
 
-    private func setTextUsingAnimation(){
-//        UIView.transition(with: self.labelTest,
-//                                  duration: 1.2,
-//                                  options: [.curveEaseInOut, .transitionCrossDissolve],
-//                                  animations: { () -> Void in
-//                                    self.labelTest.text = "80 % "
-//        }, completion: nil)
-        
-//        let animation: CATransition = CATransition()
-//        animation.duration = 1.0
-//        animation.type = kCATransitionFade
-//        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-//        labelTest.layer.addAnimation(animation, forKey: "changeTextTransition")
+    //Generic method which sets the text and image on label
+    private func setTextOn(label : UILabel, text : String, imageName:String){
+        let attachment = NSTextAttachment()
+        attachment.image = UIImage(named: imageName)
+        let attachmentString = NSAttributedString(attachment: attachment)
+        let myString = NSMutableAttributedString(string: text)
+        myString.append(attachmentString)
+        label.attributedText = myString
     }
     
+    //Set image according to the temperature
     private func setTemperatureImage(weatherType : String)
     {
         var imageName : String = ""

@@ -14,11 +14,11 @@ class WeatherInformationTableViewController: UITableViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UISetUp()
+        setUpUI()
         fetchDataUsingBlocks()
     }
 
-    func UISetUp(){
+    func setUpUI(){
         self.tableView.tableFooterView = UIView()   //To remove empty cells in UITableView
     }
     
@@ -60,15 +60,10 @@ class WeatherInformationTableViewController: UITableViewController
         return cell
     }
  
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let weatherDetailScreenObject : WeatherDetailInformationViewController = self.storyboard?.instantiateViewController(withIdentifier: "WeatherDetailInformationViewController") as! WeatherDetailInformationViewController
+        weatherDetailScreenObject.selectedWeatherInformationObject = arrayWeather[indexPath.row]
+        self.navigationController?.pushViewController(weatherDetailScreenObject, animated: true)    //Alternatively, we can use prepare for segue method
     }
-    */
 
 }

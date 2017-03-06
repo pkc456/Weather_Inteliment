@@ -14,23 +14,39 @@ class WeatherInformationTableViewController: UITableViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.getWeatherInformationOfCityID(cityIdentifier: Sydney_ID)
+        UISetUp()
+        fetchDataUsingBlocks()
     }
 
+    func UISetUp(){
+        self.tableView.tableFooterView = UIView()   //To remove empty cells in UITableView
+    }
+    
+    func fetchDataUsingBlocks(){
+        self.getWeatherInformationOfCityID(cityIdentifier: Sydney_ID) {
+            self.getWeatherInformationOfCityID(cityIdentifier: Melbourne_ID, successBlock: {
+                self.getWeatherInformationOfCityID(cityIdentifier: Brisbane_ID, successBlock: {
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()     //Reloading the tableview on main thread
+                    }
+                    
+                })
+            })
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
     //MARK: - User defined methods
-    func getWeatherInformationOfCityID(cityIdentifier : String){
+    func getWeatherInformationOfCityID(cityIdentifier : String, successBlock:@escaping () -> Void){
         WebServiceHandler.sharedInstance.getWeatherInformation(cityID: cityIdentifier, successBlock: { (result) in
             self.arrayWeather.append(result)
-            self.tableView.reloadData()
+            successBlock()
         }) { (error) in
             self.showAlert(title: "Error", message: error.localizedDescription)
         }
-        
-        
     }
     
     // MARK: - Table view data source

@@ -31,29 +31,41 @@
         <scene sceneID="dAp-nD-gFn">
             <objects>
                 <tableViewController storyboardIdentifier="WeatherInformationTableViewController" id="6W6-H3-pQb" customClass="WeatherInformationTableViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FmX-vv-iCf">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="1" id="FmX-vv-iCf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherInformationTableViewCell" id="Nbo-ek-9Rb" customClass="WeatherInformationTableViewCell" customModule="Weather" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="WeatherInformationTableViewCell" id="Nbo-ek-9Rb" customClass="WeatherInformationTableViewCell" customModule="Weather" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nbo-ek-9Rb" id="HUe-ue-Qrt">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N62-un-CzL">
-                                            <rect key="frame" x="27" y="11" width="310" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N62-un-CzL">
+                                            <rect key="frame" x="10" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okE-eo-xVb">
+                                            <rect key="frame" x="290" y="11" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="N62-un-CzL" firstAttribute="leading" secondItem="HUe-ue-Qrt" secondAttribute="leading" constant="10" id="FmE-Zf-sWe"/>
+                                        <constraint firstItem="N62-un-CzL" firstAttribute="centerY" secondItem="HUe-ue-Qrt" secondAttribute="centerY" id="QO3-BH-1bO"/>
+                                        <constraint firstAttribute="trailing" secondItem="okE-eo-xVb" secondAttribute="trailing" constant="10" id="ZZf-bc-6WN"/>
+                                        <constraint firstItem="okE-eo-xVb" firstAttribute="centerY" secondItem="N62-un-CzL" secondAttribute="centerY" id="aVE-Ha-NZO"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="labelTest" destination="N62-un-CzL" id="qXi-9g-Wfm"/>
+                                    <outlet property="labelCityName" destination="N62-un-CzL" id="1ic-Ig-pRc"/>
+                                    <outlet property="labelCityTemperature" destination="okE-eo-xVb" id="oEr-xI-nCw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -43,19 +43,3 @@ extension UIViewController{
         self.present(alert, animated: true, completion: nil)
     }
 }
-
-//MARK:- UIImage View Extension
-extension UIImageView {
-    public func imageFromUrl(urlString: String) {
-        if let url = URL(string: urlString) {
-            self.image = nil
-
-            let request : URLRequest = URLRequest(url: url)
-            NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main, completionHandler: { (response, data, error) in
-                if let imageData = data {
-                   self.image = UIImage(data: imageData)
-                }
-            })
-        }
-    }
-}

@@ -10,7 +10,8 @@ import UIKit
 
 class WeatherInformationTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var labelTest: UILabel!
+    @IBOutlet weak var labelCityName: UILabel!
+    @IBOutlet weak var labelCityTemperature: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +25,8 @@ class WeatherInformationTableViewCell: UITableViewCell {
 
     func configureCellWithData(weatherInformationModelObject : WeatherInformation)
     {
-        labelTest.text = weatherInformationModelObject.name
+        labelCityName.text = weatherInformationModelObject.name
+        labelCityTemperature.text = "\(weatherInformationModelObject.main.temp) °C"
     }
+
 }

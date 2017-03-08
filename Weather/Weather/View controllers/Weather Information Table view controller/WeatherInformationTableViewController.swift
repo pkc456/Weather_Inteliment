@@ -24,14 +24,14 @@ class WeatherInformationTableViewController: UITableViewController
     
     func fetchDataUsingBlocks(){
         self.getWeatherInformationOfCityID(cityIdentifier: Sydney_ID) {
-            self.getWeatherInformationOfCityID(cityIdentifier: Melbourne_ID, successBlock: {
-                self.getWeatherInformationOfCityID(cityIdentifier: Brisbane_ID, successBlock: {
+//            self.getWeatherInformationOfCityID(cityIdentifier: Melbourne_ID, successBlock: {
+//                self.getWeatherInformationOfCityID(cityIdentifier: Brisbane_ID, successBlock: {
                     DispatchQueue.main.async {
                         self.tableView.reloadData()     //Reloading the tableview on main thread
                     }
-                    
-                })
-            })
+//
+//                })
+//            })
         }
     }
     

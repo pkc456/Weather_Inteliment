@@ -27,6 +27,7 @@
 		D419E19C1E6BD7070024B3C5 /* WeatherInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419E1941E6BD7070024B3C5 /* WeatherInformation.swift */; };
 		D419E19D1E6BD7070024B3C5 /* Wind.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419E1951E6BD7070024B3C5 /* Wind.swift */; };
 		D419E1A11E6BD7F10024B3C5 /* WeatherInformationBusinessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419E1A01E6BD7F10024B3C5 /* WeatherInformationBusinessLayer.swift */; };
+		D44900441E6FDC7600DFBE30 /* WeatherDetailInformationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44900431E6FDC7600DFBE30 /* WeatherDetailInformationCollectionViewCell.swift */; };
 		D464E8F71E6DB5E1007CE1F4 /* WeatherDetailInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464E8F61E6DB5E1007CE1F4 /* WeatherDetailInformationViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		D419E1941E6BD7070024B3C5 /* WeatherInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherInformation.swift; sourceTree = "<group>"; };
 		D419E1951E6BD7070024B3C5 /* Wind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wind.swift; sourceTree = "<group>"; };
 		D419E1A01E6BD7F10024B3C5 /* WeatherInformationBusinessLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherInformationBusinessLayer.swift; sourceTree = "<group>"; };
+		D44900431E6FDC7600DFBE30 /* WeatherDetailInformationCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDetailInformationCollectionViewCell.swift; sourceTree = "<group>"; };
 		D464E8F61E6DB5E1007CE1F4 /* WeatherDetailInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDetailInformationViewController.swift; sourceTree = "<group>"; };
 		EA8B5BE4A472BFDD1171B226 /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				D464E8F61E6DB5E1007CE1F4 /* WeatherDetailInformationViewController.swift */,
+				D44900431E6FDC7600DFBE30 /* WeatherDetailInformationCollectionViewCell.swift */,
 			);
 			path = "Weather Detail Information View Controller";
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				TargetAttributes = {
 					D419E1411E6A842F0024B3C5 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = P6CL3M8X5H;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -376,6 +380,7 @@
 				D419E17B1E6A9EFA0024B3C5 /* WebServiceHandler.swift in Sources */,
 				D419E1721E6A9AE30024B3C5 /* WeatherInformationTableViewCell.swift in Sources */,
 				D419E19B1E6BD7070024B3C5 /* Weather.swift in Sources */,
+				D44900441E6FDC7600DFBE30 /* WeatherDetailInformationCollectionViewCell.swift in Sources */,
 				D419E19C1E6BD7070024B3C5 /* WeatherInformation.swift in Sources */,
 				D419E15B1E6A90B90024B3C5 /* AppDelegate.swift in Sources */,
 				D419E19D1E6BD7070024B3C5 /* Wind.swift in Sources */,
@@ -505,6 +510,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P6CL3M8X5H;
 				INFOPLIST_FILE = "$(SRCROOT)/Weather/Resources/Plist/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -520,6 +526,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P6CL3M8X5H;
 				INFOPLIST_FILE = "$(SRCROOT)/Weather/Resources/Plist/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

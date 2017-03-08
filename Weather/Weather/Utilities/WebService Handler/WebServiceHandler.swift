@@ -42,7 +42,6 @@ class WebServiceHandler: NSObject {
         self.apiRequest(method: .get, url: weatherInfoUrl) { (finished, response) in
             if(finished){
                 if let dictionaryPlayout = response{
-                    print("yoyo: \(dictionaryPlayout)")
                     let weatherInformationModelObject = WeatherInformationBusinessLayer.sharedInstance.parseArrayJsonData(data: dictionaryPlayout as! Dictionary<String, Any>)
                     successBlock(weatherInformationModelObject)
                 }

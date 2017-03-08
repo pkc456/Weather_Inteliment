@@ -14,7 +14,7 @@ let BASE_URL = "http://api.openweathermap.org/data/2.5/weather?"
 let API_KEY_OF_OPEN_WEATHER = "2bf2b11f23445afb09c7d2765ee67538"
 let WEATHER_UNIT = "metric"
 
-let Sydney_ID = "2130135"//4163971
+let Sydney_ID = "4163971"
 let Melbourne_ID = "2147714"
 let Brisbane_ID = "2174003"
 

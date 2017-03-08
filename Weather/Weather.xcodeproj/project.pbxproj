@@ -14,7 +14,6 @@
 		D419E1681E6A91080024B3C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D419E1651E6A91080024B3C5 /* Assets.xcassets */; };
 		D419E1701E6A99610024B3C5 /* WeatherInformationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419E16F1E6A99610024B3C5 /* WeatherInformationTableViewController.swift */; };
 		D419E1721E6A9AE30024B3C5 /* WeatherInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419E1711E6A9AE30024B3C5 /* WeatherInformationTableViewCell.swift */; };
-		D419E1731E6A9CC70024B3C5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D419E1671E6A91080024B3C5 /* Info.plist */; };
 		D419E1791E6A9EFA0024B3C5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419E1751E6A9EFA0024B3C5 /* Constants.swift */; };
 		D419E17A1E6A9EFA0024B3C5 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419E1761E6A9EFA0024B3C5 /* Utility.swift */; };
 		D419E17B1E6A9EFA0024B3C5 /* WebServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D419E1781E6A9EFA0024B3C5 /* WebServiceHandler.swift */; };
@@ -309,7 +308,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D419E1731E6A9CC70024B3C5 /* Info.plist in Resources */,
 				D419E1621E6A90D60024B3C5 /* Main.storyboard in Resources */,
 				D419E1681E6A91080024B3C5 /* Assets.xcassets in Resources */,
 				D419E1611E6A90D60024B3C5 /* LaunchScreen.storyboard in Resources */,

@@ -56,12 +56,12 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jOS-Ob-WSq" userLabel="View-Middle">
-                                <rect key="frame" x="0.0" y="168" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="168" width="320" height="160"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="K3L-Cb-LC3">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="15I-RP-Nzz">
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="15I-RP-Nzz">
                                             <size key="itemSize" width="80" height="80"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -113,11 +113,17 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="K3L-Cb-LC3" secondAttribute="trailing" id="5h5-id-Pzz"/>
                                     <constraint firstItem="K3L-Cb-LC3" firstAttribute="top" secondItem="jOS-Ob-WSq" secondAttribute="top" id="6NG-Z7-giC"/>
-                                    <constraint firstAttribute="height" constant="80" id="K4F-8y-c50"/>
+                                    <constraint firstAttribute="height" constant="160" id="K4F-8y-c50"/>
                                     <constraint firstAttribute="bottom" secondItem="K3L-Cb-LC3" secondAttribute="bottom" id="dgB-O1-m3r"/>
                                     <constraint firstItem="K3L-Cb-LC3" firstAttribute="leading" secondItem="jOS-Ob-WSq" secondAttribute="leading" id="o9i-G9-2Jm"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© Openweathermap.org" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNQ-0v-7Ll">
+                                <rect key="frame" x="102.5" y="486" width="115.5" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.98039215690000003" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -127,6 +133,8 @@
                             <constraint firstItem="Fsx-jF-gDd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IQ7-2X-QgL"/>
                             <constraint firstAttribute="trailing" secondItem="Fsx-jF-gDd" secondAttribute="trailing" id="K9f-Yh-bhy"/>
                             <constraint firstItem="jOS-Ob-WSq" firstAttribute="trailing" secondItem="Fsx-jF-gDd" secondAttribute="trailing" id="Q3d-Yw-hqC"/>
+                            <constraint firstItem="NNQ-0v-7Ll" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="h3d-PP-mMU"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NNQ-0v-7Ll" secondAttribute="bottom" constant="6" id="hZR-q4-vMA"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

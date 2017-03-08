@@ -9,15 +9,15 @@
 import UIKit
 
 class WeatherDetailInformationViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
-
+    
     @IBOutlet weak var imageViewTemperature: UIImageView!
     var selectedWeatherInformationObject : WeatherInformation!
     
     @IBOutlet weak var labelTemperature: UILabel!
     @IBOutlet weak var labelWeatherDescription: UILabel!
     @IBOutlet weak var collectionViewWeatherDetail: UICollectionView!
-
-    final let totalNumberOfItemsInCollectionView = 3
+    
+    final let totalNumberOfItemsInCollectionView = 6
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class WeatherDetailInformationViewController: UIViewController,UICollectionViewD
         //Set image according to temperature
         self.setTemperatureImage(weatherType: selectedWeatherInformationObject.weather[0].main)
         collectionViewWeatherDetail.reloadData()
-    }    
+    }
     
     //Set image according to the temperature
     private func setTemperatureImage(weatherType : String)
@@ -60,10 +60,10 @@ class WeatherDetailInformationViewController: UIViewController,UICollectionViewD
     }
     
     override func didReceiveMemoryWarning() {
-    }    
-
+    }
+    
     //MARK: Collection view datasource and delegates
-     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return totalNumberOfItemsInCollectionView
     }
     
@@ -71,35 +71,65 @@ class WeatherDetailInformationViewController: UIViewController,UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         let height :CGFloat = 80.0
-        let width = collectionView.frame.size.width/CGFloat(totalNumberOfItemsInCollectionView)
+        let width = collectionView.frame.size.width/CGFloat(totalNumberOfItemsInCollectionView/2)   //totalNumberOfItemsInCollectionView/2 to show 3 cells horizontal with equal spacing
         return CGSize(width: width, height: height)
     }
     
     
-     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : WeatherDetailInformationCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherDetailInformationCollectionViewCell", for: indexPath) as! WeatherDetailInformationCollectionViewCell
         let cellData = self.getData(row: indexPath.row)
         cell.configureCellWithData(detailText: cellData.detailText, imageName: cellData.nameOfImage)
+        performCellAnimation(cell: cell)
         return cell
+    }
+    
+    //Cell animation method
+    private func performCellAnimation(cell:WeatherDetailInformationCollectionViewCell){
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: [],
+                       animations: {
+                        cell.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+                        
+        },
+           completion: { finished in
+                UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 3, options: .curveEaseInOut,
+                               animations: {
+                                cell.transform = CGAffineTransform(scaleX: 1, y: 1)
+                },
+                               completion: nil
+                )
+            }
+        )
     }
     
     //MARK: user defined methods
     
-    //Using tuples, get the value corresponding to the cell
-    private func getData(row : Int)-> (detailText:String,nameOfImage:String){
+    private func getData(row : Int)-> (detailText:String,nameOfImage:String)    //Using tuples, get the value corresponding to the cell
+    {
         var dataText = ""
         var imageName = ""
         
         switch row {
         case 0:
-                dataText = "\(selectedWeatherInformationObject.main.humidity)%"
-                imageName = "Humidity"
+            dataText = "\(selectedWeatherInformationObject.main.humidity)%"
+            imageName = "Humidity"
         case 1:
-            dataText = "\(selectedWeatherInformationObject.main.temp_max)° \(selectedWeatherInformationObject.main.temp_min)°"
+            dataText = "\(selectedWeatherInformationObject.main.temp_max)° : \(selectedWeatherInformationObject.main.temp_min)°"
             imageName = "Temperature"
         case 2:
             dataText = "\(selectedWeatherInformationObject.wind.speed)m/s"
             imageName = "WindSpeed"
+        case 3:
+            dataText = "\(selectedWeatherInformationObject.visibility)"
+            imageName = "Visibility"
+        case 4:
+            let date = NSDate(timeIntervalSince1970: TimeInterval(selectedWeatherInformationObject.sys.sunrise))
+            dataText = getTimeStringFromDate(date: date as Date)
+            imageName = "Sunrise"
+        case 5:
+            let date = NSDate(timeIntervalSince1970: TimeInterval(selectedWeatherInformationObject.sys.sunset))
+            dataText = getTimeStringFromDate(date: date as Date)
+            imageName = "Sunset"
         default:
             dataText = "\(selectedWeatherInformationObject.main.humidity)%"
             imageName = "Humidity"
@@ -108,21 +138,11 @@ class WeatherDetailInformationViewController: UIViewController,UICollectionViewD
         return (dataText,imageName)
     }
     
-//    //Set attribute text on artist label
-//    func getAttributedTextForTemperature(temperature : String){
-//        let departureAttribute = [
-//            NSFontAttributeName : UIFont.systemFont(ofSize: 13.0),
-//            NSForegroundColorAttributeName : UIColor.darkGray,
-//            ]
-//        let departureAttributedString = NSMutableAttributedString(string: "By ", attributes: departureAttribute)
-//        
-//        let arrivalAttribute = [
-//            NSFontAttributeName : UIFont.systemFont(ofSize: 13.0),
-//            NSForegroundColorAttributeName : UIColor.red,
-//            ]
-//        let arrivalAttributedString = NSAttributedString(string: String(format: "%@", artistName), attributes: arrivalAttribute)
-//        
-//        departureAttributedString.append(arrivalAttributedString)
-//        labelArtistName.attributedText = departureAttributedString
-//    }
+    private func getTimeStringFromDate(date : Date) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .short
+        let dataString = dateFormatter.string(from: date)
+        return dataString
+    }
 }
